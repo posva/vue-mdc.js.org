@@ -1,14 +1,17 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { join, resolve } = require('path')
 const hljs = require('highlight.js')
+const glob = require('glob').sync
 const customBlock = require('markdown-it-custom-block')
-// It'd be better to add a sass property to the vue-loader options
-// but it simply don't work
+const icons = require('./icons.config')
+
 const sassOptions = {
   includePaths: [
     join(__dirname, './node_modules')
   ]
 }
+const docPages = glob('articles/**/*.md')
+        .map(f => f.replace('articles', '').replace('.md', ''))
 
 module.exports = {
   /*
@@ -19,10 +22,16 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { hid: 'description', name: 'description', content: 'Vue MDC Documentation' },
+      { name: 'apple-mobile-web-app-capable', content: 'yes' },
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+      { name: 'apple-mobile-web-app-title', content: 'Vue MDC Documentation' },
+      { name: 'mobile-web-app-capable', content: 'yes' },
+      { name: 'theme-color', content: '#fff' },
+      { name: 'application-name', content: 'Vue MDC' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      ...icons,
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500' }
     ]
   },
@@ -30,6 +39,12 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: { color: '#3B8070' },
+  generate: {
+    routes: [
+      '/',
+      ...docPages
+    ]
+  },
   /*
   ** Build configuration
   */
