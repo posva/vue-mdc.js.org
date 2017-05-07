@@ -25,7 +25,14 @@
     "eslint-plugin-promise": "^3.4.1",
     "eslint-plugin-standard": "^2.0.1",
     "highlight.js": "^9.11.0",
+    "lodash.kebabcase": "^4.1.1",
     "markdown-it": "^8.3.1",
-    "markdown-it-loader": "^0.5.0"
+    "markdown-it-custom-block": "^0.1.0",
+    "markdown-it-loader": "^0.6.0",
+    "node-sass": "^4.5.2",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.3",
+    "uppercamelcase": "^3.0.0",
+    "webpack-bundle-analyzer": "^2.4.0"
   }
 }

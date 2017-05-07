@@ -9,6 +9,10 @@
         Universal Vue.js Application
       </h2>
       <MdcButton v-ripple>Hey there</MdcButton>
+      <br/>
+      <router-link to="/en/buttons">buttons</router-link>
+      <br/>
+      <router-link to="/en/cards">cards</router-link>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
         <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">Github</a>
