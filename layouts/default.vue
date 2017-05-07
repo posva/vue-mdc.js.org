@@ -11,5 +11,4 @@ $mdc-theme-background: #fff;
 
 @import "@material/theme/mdc-theme";
 @import "@material/typography/mdc-typography";
-@import "@material/button/mdc-button";
 </style>

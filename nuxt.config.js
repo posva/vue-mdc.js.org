@@ -107,7 +107,7 @@ module.exports = {
   ],
 
   css: [
-    // 'vue-mdc/dist/vue-mdc.min.css'
+    'vue-mdc/dist/vue-mdc.min.css',
     'highlight.js/styles/tomorrow.css'
   ]
 }
