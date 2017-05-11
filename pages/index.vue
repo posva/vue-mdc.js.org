@@ -1,18 +1,15 @@
 <template>
   <section class="container">
     <div>
-      <logo/>
+      <img alt="Vue MDC" src="~assets/logo.svg"/>
       <h1 class="title">
-        NUXT
+        Vue MDC
       </h1>
       <h2 class="subtitle">
         Universal Vue.js Application
       </h2>
-      <MdcButton v-ripple>Hey there</MdcButton>
+      <MdcButton v-ripple tag="router-link" to="/en/buttons">Get Started</MdcButton>
       <br/>
-      <router-link to="/en/buttons">buttons</router-link>
-      <br/>
-      <router-link to="/en/cards">cards</router-link>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
         <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">Github</a>
