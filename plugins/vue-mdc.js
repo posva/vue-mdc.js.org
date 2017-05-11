@@ -5,8 +5,7 @@ Vue.use(VueMdc)
 
 Vue.component('MdcDrawerNavLink', {
   props: {
-    to: String,
-    selected: Boolean
+    to: String
   },
 
   inject: ['mode'],
@@ -22,7 +21,8 @@ Vue.component('MdcDrawerNavLink', {
         [`mdc-${this.mode}-drawer--selected`]: this.$route.path === this.to
       },
       props: {
-        to: this.to
+        to: this.to,
+        exact: true
       }
     }, this.$slots.default)
   }
