@@ -3,10 +3,9 @@ import VueMdc from 'vue-mdc/dist/vue-mdc.esm.js'
 
 Vue.use(VueMdc)
 
+const props = Vue.component('router-link').options.props
 Vue.component('MdcDrawerNavLink', {
-  props: {
-    to: String,
-  },
+  props,
 
   inject: ['mode'],
 
@@ -20,10 +19,7 @@ Vue.component('MdcDrawerNavLink', {
       class: {
         [`mdc-${this.mode}-drawer--selected`]: this.$route.path === this.to,
       },
-      props: {
-        to: this.to,
-        exact: true,
-      },
+      props: this.$props,
     }, this.$slots.default)
   },
 })
