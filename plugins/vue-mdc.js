@@ -5,7 +5,7 @@ Vue.use(VueMdc)
 
 Vue.component('MdcDrawerNavLink', {
   props: {
-    to: String
+    to: String,
   },
 
   inject: ['mode'],
@@ -15,15 +15,15 @@ Vue.component('MdcDrawerNavLink', {
       staticClass: 'mdc-list-item',
       directives: [{ name: 'ripple' }],
       nativeOn: {
-        click: () => this.$parent.close()
+        click: () => this.$parent.close(),
       },
       class: {
-        [`mdc-${this.mode}-drawer--selected`]: this.$route.path === this.to
+        [`mdc-${this.mode}-drawer--selected`]: this.$route.path === this.to,
       },
       props: {
         to: this.to,
-        exact: true
-      }
+        exact: true,
+      },
     }, this.$slots.default)
-  }
+  },
 })

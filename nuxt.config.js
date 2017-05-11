@@ -7,8 +7,8 @@ const icons = require('./icons.config')
 
 const sassOptions = {
   includePaths: [
-    join(__dirname, './node_modules')
-  ]
+    join(__dirname, './node_modules'),
+  ],
 }
 const docPages = glob('articles/**/*.md')
         .map(f => f.replace('articles', '').replace('.md', ''))
@@ -28,13 +28,13 @@ module.exports = {
       { name: 'apple-mobile-web-app-title', content: 'Vue MDC Documentation' },
       { name: 'mobile-web-app-capable', content: 'yes' },
       { name: 'theme-color', content: '#fff' },
-      { name: 'application-name', content: 'Vue MDC' }
+      { name: 'application-name', content: 'Vue MDC' },
     ],
     link: [
       ...icons,
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }
-    ]
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
+    ],
   },
   /*
   ** Customize the progress-bar color
@@ -43,8 +43,8 @@ module.exports = {
   generate: {
     routes: [
       '/',
-      ...docPages
-    ]
+      ...docPages,
+    ],
   },
   /*
   ** Build configuration
@@ -61,7 +61,7 @@ module.exports = {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         })
       }
 
@@ -98,12 +98,12 @@ module.exports = {
               },
               use: [
                 [customBlock, {
-                  example: name => `<example src="${name}"/>`
-                }]
-              ]
-            }
-          }
-        ]
+                  example: name => `<example src="${name}"/>`,
+                }],
+              ],
+            },
+          },
+        ],
       })
     },
     plugins: [
@@ -113,17 +113,17 @@ module.exports = {
         reportFilename: resolve(
           __dirname,
           `reports/${process.env.NODE_ENV || 'report'}.html`
-        )
-      })
-    ]
+        ),
+      }),
+    ],
   },
 
   plugins: [
-    '~plugins/vue-mdc'
+    '~plugins/vue-mdc',
   ],
 
   css: [
     'vue-mdc/dist/vue-mdc.min.css',
-    'highlight.js/styles/tomorrow.css'
-  ]
+    'highlight.js/styles/tomorrow.css',
+  ],
 }

@@ -12,7 +12,7 @@ module.exports = function (source) {
     if (!components.find(c => c.path === component)) {
       components.push({
         name: uppercamelcase(component.replace('/', '-')),
-        path: component
+        path: component,
       })
     }
     source = source.replace(match, `<example-${kebab(component)}/>`)

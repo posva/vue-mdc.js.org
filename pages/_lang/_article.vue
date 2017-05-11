@@ -11,7 +11,7 @@
 export default {
   data () {
     return {
-      comp: null
+      comp: null,
     }
   },
   async created () {
@@ -20,6 +20,6 @@ export default {
       `../../articles/${params.lang}/${params.article}.md`
     )
     this.comp = comp
-  }
+  },
 }
 </script>
