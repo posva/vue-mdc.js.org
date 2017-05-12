@@ -1,9 +1,6 @@
 <template>
   <section>
-    <router-link to="/">Home</router-link>
-    <br/>
     <component :is="comp"></component>
-    <!-- <pre>{{comp}}</pre> -->
   </section>
 </template>
 
@@ -14,12 +11,34 @@ export default {
       comp: null,
     }
   },
-  async created () {
-    const { params } = this.$route
-    const comp = await import(
-      `../../articles/${params.lang}/${params.article}.md`
-    )
-    this.comp = comp
+
+  created () {
+    this.fetchArticle(this.$route.params)
+  },
+
+  methods: {
+    async fetchArticle ({ lang, article }) {
+      this.comp = await import(
+        `../../articles/${lang}/${article}.md`
+      ).catch(() => {
+        return {
+          render (h) {
+            return (
+              <div>
+                <h1>Not found</h1>
+                <router-link to='/'>Go Home</router-link>
+              </div>
+            )
+          },
+        }
+      })
+    },
+  },
+
+  watch: {
+    '$route.params' () {
+      this.fetchArticle(this.$route.params)
+    },
   },
 }
 </script>
