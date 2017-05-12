@@ -6,27 +6,13 @@
         Vue MDC
       </h1>
       <h2 class="subtitle">
-        Universal Vue.js Application
+        Material Design Components
       </h2>
       <MdcButton v-ripple tag="router-link" to="/en/buttons">Get Started</MdcButton>
       <br/>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">Github</a>
-      </div>
     </div>
   </section>
 </template>
-
-<script>
-import Logo from '~components/Logo.vue'
-
-export default {
-  components: {
-    Logo,
-  },
-}
-</script>
 
 <style>
 .container
