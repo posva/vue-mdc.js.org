@@ -5,25 +5,61 @@
         <i class="material-icons">star</i>
       </MdcToolbarSection>
     </MdcToolbar>
-    <nuxt/>
+
+    <div class="content">
+      <nuxt/>
+    </div>
+
     <MdcDrawer ref="menu">
       <MdcDrawerHeader slot="header"></MdcDrawerHeader>
 
-      <MdcDrawerNav>
-        <MdcDrawerNavLink to="/en/buttons">
-          Buttons
-        </MdcDrawerNavLink>
-      </MdcDrawerNav>
+      <template v-for="section in sections">
+        <MdcDrawerNav>
+          <MdcDrawerNavLink v-for="link in section.links"
+                            :key="link.link"
+                            :to="lang + link.link"
+          >{{ link.name }}</MdcDrawerNavLink>
+        </MdcDrawerNav>
 
-      <MdcListDivider/>
-
-      <MdcDrawerNav>
-        <MdcDrawerNavItem
-        >Ripple</MdcDrawerNavItem>
-      </MdcDrawerNav>
+        <MdcListDivider/>
+      </template>
     </MdcDrawer>
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      lang: '/en/',
+      sections: [
+        {
+          name: 'Components',
+          links: [
+            {
+              name: 'Installation',
+              link: 'installation',
+            },
+            {
+              name: 'Buttons',
+              link: 'buttons',
+            },
+          ],
+        },
+        {
+          name: 'Directives',
+          links: [
+            {
+              name: 'Ripple',
+              link: 'ripple',
+            },
+          ],
+        },
+      ],
+    }
+  },
+}
+</script>
 
 <style lang="scss">
 $mdc-theme-primary: #35495E;
