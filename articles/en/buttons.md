@@ -35,7 +35,7 @@ Nope ~~NOOOO~~ or ~single character~
 
 ## Props
 
-| Name | Type | Default | Description | 
+| Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | raised | Boolean | false | Applies a raised effect to the button |
 | primary | Boolean | false | Applies the primary color to the button |
