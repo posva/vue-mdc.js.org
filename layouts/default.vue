@@ -41,6 +41,25 @@ body {
   color: white;
 }
 
+.content {
+  padding: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  text-align: left;
+  background-color: #dcdcdc;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #eaeefb;
+}
+
 @import "@material/theme/mdc-theme";
 @import "@material/typography/mdc-typography";
 </style>

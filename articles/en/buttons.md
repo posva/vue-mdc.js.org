@@ -33,10 +33,12 @@ Let's see how this links look:
 
 Nope ~~NOOOO~~ or ~single character~
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+## Props
+
+| Name | Type | Default | Description | 
+| --- | --- | --- | --- |
+| raised | Boolean | false | Applies a raised effect to the button |
+| primary | Boolean | false | Applies the primary color to the button |
 
 Custom html:
 
