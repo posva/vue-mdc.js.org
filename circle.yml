@@ -1,0 +1,27 @@
+general:
+  branches:
+    ignore:
+      - gh-pages
+machine:
+  node:
+    version: 7
+  environment:
+    PATH: "${PATH}:${HOME}/.yarn/bin:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+dependencies:
+  pre:
+    - |
+      if [[ ! -e ~/.yarn/bin/yarn ]]; then
+        curl -o- -L https://yarnpkg.com/install.sh | bash -s
+      fi
+  cache_directories:
+    - ~/.yarn
+    - ~/.yarn-cache
+  override:
+    - yarn install
+test:
+  pre:
+    - npm rebuild node-sass
+  override:
+    - yarn test
+  post:
+    - yarn gh-pages
